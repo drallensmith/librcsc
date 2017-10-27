@@ -991,9 +991,9 @@ SelfObject::updateBallInfo( const BallObject & ball )
 
     if ( ball.distFromSelf() <= playerType().kickableArea() )
     {
-        double buf = 0.055;
-        if ( ball.seenPosCount() >= 2 ) buf = 0.255;
-        if ( ball.seenPosCount() >= 1 ) buf = 0.155;
+      double buf = 0.055 + ball.rposError();
+        // if ( ball.seenPosCount() >= 2 ) buf = 0.255;
+        // if ( ball.seenPosCount() >= 1 ) buf = 0.155;
 
         if ( ball.distFromSelf() <= playerType().kickableArea() - buf )
         {
